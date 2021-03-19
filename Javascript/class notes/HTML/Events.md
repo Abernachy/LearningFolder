@@ -16,3 +16,18 @@ focus
 blur
 
 shitload more: https://developer.mozilla.org/en-US/docs/Web/Events
+
+
+## Coding
+```
+// addEventListener() - adds an event listener to the entire window object
+window.addEventListener("click", function(){
+  alert("You clicked on te page!")
+})
+
+// Every DOM element has its own addEventListener
+
+var button = document.querySelector("button")
+button.addEventListener("click", function(){
+  alert("Someone clicked the button!!")
+})
