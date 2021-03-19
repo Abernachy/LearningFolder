@@ -20,8 +20,12 @@ Git has a command line interface thats built into most Linux distros.  For Windo
     
   
   ```
-  #Creates a local copy of your git repository at the location you are at. It'll create a folder for this repository
+  //Creates a local copy of your git repository at the location you are at. //It'll create a folder for this repository
   $git clone "blahblah.git" 
+
+  //To update  your local to the master branch
+  git checkout "name.got"
+  git merge origin/master
   ```
 
 
