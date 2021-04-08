@@ -7,3 +7,4 @@
     3. Any Blockers
 This help keep an open line of communication
 
+retrospective - What did I do well, what can I improve on, and what didn't go well.
