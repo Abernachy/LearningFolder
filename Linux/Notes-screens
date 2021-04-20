@@ -1,0 +1,20 @@
+
+----------------------------------------------------------
+Monitors are blacked out even if they are connected:
+
+
+
+So basically somtimes the screens for the dock will go black, and nothing seems to be getting them back on.  Here are some steps I did to hopefully remedy the issue in the future.
+
+xrandr  ( whch shows your display data when you run it without any options. The Left monitor is DVI-I-2-2 and the right is DVI-I-1-1)
+
+If you see the monitors in the xrandr command output:
+
+xrandr --output (name [ DVI-I-1-1/etc) -- off  => turns the monitor off
+xrandr --output --auto  => will turn it back on and will reet the settings though, so you'll have to reposition them.
+
+Thats my known fix for the issue, when/if I develop a bash script for it, I'll paste it here
+
+
+
+--------------------------------------------------------
