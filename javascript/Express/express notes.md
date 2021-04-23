@@ -63,12 +63,12 @@ You can use req.params to specify things like a whole row of data based on whats
 
 
 # Example code
-Please be aware, future me, these were done before I refactored the code, if I even did that at all, lols.
-Also, do something nice for the wife, if you are still reading this.
+
+Also, do something nice for the wife, if you are still reading this in the future or referencing for shit.
 ```
 // This is from the Galvanize back end project I did.
 
-onst express = require('express')
+const express = require('express')
 const knex = require('knex')(require('./knexfile.js')["development"]);
 const cors = require('cors')
 const app = express()
@@ -84,18 +84,44 @@ app.get('/', (req,res) => res.send('Hello'))
 
 app.listen(port, () => console.log('Listening to port: ' + port))
 
-
-//Send the data from our locations table using Knex, more notes in the express with knex notes file in this directory
+app.get('/users', (req,res) => {
+    //res.send(knex.select().table('users'))
+    // SELECT * FROM users
+    knex.select().from("users")
+    .then(data =>res.status(200).json(data))
+    })
 
 app.get('/locations', (req,res)=>{
-    knex
-    .select()
-    .from("locations")
+    knex.select().from("locations")
     .then(data => res.status(200).json(data))
-    .catch(err => 
-        res.status(404).json({
-            message: 'Data not found'
-        }))
+})
+
+app.get('/ads', (req, res) => {
+    // /ads?tagid=X&baseid=X
+    let {baseid, tagid} = req.query
+    if (baseid != undefined && tagid != undefined) {
+    knex.select().from('posts').where({base_id: baseid,tag_id: tagid})
+    .then(data => res.status(200).json(data))
+
+    } else if  (baseid != undefined && tagid == undefined) {
+    knex.select().from('posts').where('base_id',baseid)
+    .then(data => res.status(200).json(data))
+
+    } else if (baseid == undefined && tagid != undefined){
+    knex.select().from('posts').where('tag_id',tagid)
+    .then(data => res.status(200).json(data))
+
+    }else {
+    knex.select().from('posts')
+    .then(data => res.status(200).json(data))
+    }})
+   
+// Grab a specific ad based on id
+app.get("/ads/:id", (req, res) => {
+    let postsid = req.params.id
+    knex.select().from("posts").where("postsid", postsid)
+    .then(data => res.status(200).json(data))
+})
 
 // Post and Delete
 app.post('/ads', (req,res) => {
@@ -104,25 +130,31 @@ app.post('/ads', (req,res) => {
     .then( (result) => {
         res.json({ success: true, message: 'ok'})
     })
-    .catch( (err) =>{
-        res.json({message:"No Go " + err})
-    })
 })
 
 app.delete('/ads', (req, res) => {
     let postsid = req.body.postsid
     knex("posts").where({postsid: postsid}).del()
     .then(result => res.json({success:true, message: "Ad deleted"}))
-    .catch(err => res.json({message: err}))
 })
 
-app.patch('/ads', (req, res) => {
-  
-    console.log(req.body)
-    
+app.patch('/ads', (req, res) => {  
     knex("posts").where({postsid: req.body.postsid}).update(req.body)
     .then(result => res.json({success:true, message: "Ad updated"}))
-    .catch(err => res.json({message: err}))
 })
+
+// Error Handling
+
+app.use(function (err,req, res,next){
+    res.status(err.status || 500);
+    if (res.status == 404){
+        res.json({'ERROR': "Data not found"})
+    } else{
+        res.json({
+            'error': {
+                message: "We were unable to retrieve your requested resource, please try again or re-do your request"
+        }})
+    }})
+
 
 ```
