@@ -18,3 +18,9 @@ Thats my known fix for the issue, when/if I develop a bash script for it, I'll p
 
 
 --------------------------------------------------------
+The Display Link USB-C dock and the issues with it
+
+All right.  So I took some time to fuck with the USB-C dock that I got a few months back.  It's a decent dock, the big problem is the display-link software.  So the basic idea is that display-link uses cpu to help leverage your GPU for outputting to multiple screens.  It seems to work fine on Windows, on Linux their support is kind of garbage, with the software eating 50% of the cpu while it's running.
+
+The fix?
+  Don't fucking use it.  As long as your USB-C dongle is connected to the Thunderbolt 3 port, the HDMI output will output to another monitor, assuming you have the main HDMI port already being used.  The experience is significantly better and everything runs a lot smoother.  I should have never bought the damn dock.
