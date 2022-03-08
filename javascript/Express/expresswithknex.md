@@ -89,4 +89,10 @@ exports.seed = function(knex, Promise) {
 ```
 
 # Use cases/examples/etc
+```
+  // SELECT * FROM users;
+    knex.select().from("users")
 
+  // SELECT * FROM posts WHERE (base_id=baseid AND tag_id:tagid);
+  
+```
