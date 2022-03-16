@@ -4,15 +4,15 @@
 
 1.  Make sure the main color matches the websites personality, colors convey meaning
 
-Red -> Draws a lot of attention, and symbolizes power, passion and excitement
-Orange -> Similiar to red, but less aggresive, and conveys happiness, cheerfulness, and creativity
-Yellow => joys, brightness, and intelligence
-Green => harmony, nature, growth, and health
-Blue => associated with peace, trustworthiness, and professionalism
-Purple => wealth, wisdom, and magic
-Pink => romance, care, and affection
-Brown => nature, durability, and comfort
-Black -> symbolizes power, elegance, and minimalism, but also grief and sorrow (most difficult color to work with)
+Red -> Draws a lot of attention, and symbolizes power, passion and excitement  
+Orange -> Similiar to red, but less aggresive, and conveys happiness, cheerfulness, and creativity  
+Yellow => joys, brightness, and intelligence  
+Green => harmony, nature, growth, and health  
+Blue => associated with peace, trustworthiness, and professionalism  
+Purple => wealth, wisdom, and magic  
+Pink => romance, care, and affection  
+Brown => nature, durability, and comfort  
+Black -> symbolizes power, elegance, and minimalism, but also grief and sorrow (most difficult color to work with)  
 
 2. Use a good color tone, don't choose a random tone or CSS named colors
    Tool options: Open Color , Tailwind CSS , Flat UI Colors 2
