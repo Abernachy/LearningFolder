@@ -26,3 +26,5 @@ Space between elements
     Too much white space looks detached, too little looks too crammed.
 
 3.  Match other design choices. If you have big text or big icons, you need more whitespace
+
+4.  Try a hard rule, such as using multiples of 16px for all spacing
